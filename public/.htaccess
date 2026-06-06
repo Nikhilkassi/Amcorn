@@ -1,0 +1,11 @@
+DirectoryIndex index.html
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  RewriteCond %{HTTP_HOST} ^www\.amcorn\.com$ [NC,OR]
+  RewriteCond %{HTTP_HOST} ^(www\.)?amcorn\.co\.uk$ [NC]
+  RewriteRule ^(.*)$ https://amcorn.com/$1 [R=301,L,NE]
+</IfModule>

@@ -1,0 +1,37 @@
+AMCORN procurement checklist
+
+Use this checklist when preparing a site assessment or supplier onboarding pack for critical environment cleaning.
+
+1. Facility profile
+- Site type and location
+- Number of data halls, suites, racks, CRAC/CRAH units, and secure rooms
+- Current cleaning frequency and last specialist clean date
+- Known contamination, airflow, thermal, or audit concerns
+
+2. Access and security
+- Site access window and escort requirements
+- Clearance level required, if any
+- RAMS approval workflow
+- Visitor, induction, and permit-to-work process
+
+3. Technical scope
+- Raised floor and plenum cleaning requirements
+- Active equipment cleaning requirements
+- Cooling infrastructure cleaning requirements
+- Sensor monitoring, reporting, and data export requirements
+
+4. Compliance evidence
+- Particle count reporting by zone
+- Before and after photographic record
+- COSHH product register
+- ESD equipment records
+- Operative identity and clearance confirmation
+- Insurance schedule and method statement
+
+5. Commercial response
+- One-off remediation, scheduled maintenance, or multi-site programme
+- Required mobilisation date
+- Procurement deadline
+- Billing entity and onboarding contact
+
+AMCORN can provide a proposal, supplier pack, and indicative budget after the site assessment request.
