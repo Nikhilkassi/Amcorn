@@ -1,5 +1,4 @@
 'use client'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, Download, FileCheck2, ShieldCheck } from 'lucide-react'
@@ -29,14 +28,9 @@ const PROCUREMENT_CUES = [
 export function HeroSection() {
   return (
     <section className="relative min-h-[86svh] overflow-hidden bg-[var(--ink)] pt-[var(--nav-h)]">
-      <Image
-        src="/media/data-hall-hero.jpg"
-        alt=""
-        fill
-        loading="eager"
-        sizes="100vw"
-        className="hero-media object-cover"
-      />
+      <video className="hero-bg-video" autoPlay muted loop playsInline poster="/media/data-hall-hero.jpg" aria-hidden="true">
+        <source src="/videos/Data Walk.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.94)_0%,rgba(5,5,5,0.76)_42%,rgba(5,5,5,0.38)_100%)]" aria-hidden />
       <div className="absolute inset-0 bg-[linear-gradient(0deg,var(--ink)_0%,rgba(5,5,5,0)_34%,rgba(5,5,5,0)_100%)]" aria-hidden />
       <div className="absolute inset-0 hero-grid-bg pointer-events-none opacity-60" aria-hidden />
