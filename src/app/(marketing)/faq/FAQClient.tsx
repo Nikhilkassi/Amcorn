@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDown, ArrowRight } from 'lucide-react'
 import { FAQ_ITEMS } from '@/lib/mockData'
@@ -54,7 +54,14 @@ export function FAQClient() {
     <>
       <div className="glass rounded-2xl px-8 divide-y divide-[var(--color-border)] mb-16">
         {FAQ_ITEMS.map((item, i) => (
-          <FAQItem key={item.q} q={item.q} a={item.a} index={i} />
+          <Fragment key={item.q}>
+            {'group' in item && (
+              <div className="py-5">
+                <p className="brand-mono text-[var(--color-text-muted)]">{item.group}</p>
+              </div>
+            )}
+            <FAQItem q={item.q} a={item.a} index={i} />
+          </Fragment>
         ))}
       </div>
 

@@ -9,8 +9,11 @@ const LINKS = {
     { label: 'Secure Facility Cleaning',      href: '/services/secure-government-defence' },
     { label: 'Post-Construction Clean',       href: '/services/post-construction-clean' },
     { label: 'Maintenance Programmes',        href: '/services/scheduled-maintenance' },
+    { label: 'Life Sciences Cleaning',         href: '/services/life-sciences' },
+    { label: 'Healthcare Facilities',          href: '/services/healthcare' },
   ],
   Company: [
+    { label: 'About AMCORN',                  href: '/about' },
     { label: 'Technology Platform',           href: '/technology' },
     { label: 'Case Studies',                  href: '/case-studies' },
     { label: 'Insights',                      href: '/insights' },

@@ -5,7 +5,7 @@ import { Wifi, Cpu, LayoutDashboard, FileCheck } from 'lucide-react'
 
 export const metadata = {
   title: 'AMCORN Technology Platform | IoT · ML Dispatch · Compliance Portal',
-  description: 'Real-time IoT sensor monitoring, ML-predicted service intervals, and digital compliance reporting - built for critical technology environments.',
+  description: 'Real-time IoT monitoring, ML-predicted service intervals, and audit-ready compliance reporting — built for data centres, life sciences facilities, and regulated healthcare environments.',
 }
 
 const TECH_FEATURES = [
@@ -69,6 +69,9 @@ export default function TechnologyPage() {
             </h1>
             <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl">
               AMCORN combines sensor recommendations, job tracking, service interval logic, and compliance documentation so facilities teams can manage cleaning as an operational control, not an afterthought.
+            </p>
+            <p className="mt-5 text-lg text-[var(--color-text-secondary)] max-w-2xl">
+              Originally built for data centre environments, the AMCORN platform is now being extended into GMP-regulated life sciences facilities and CQC-registered healthcare environments — applying the same IoT monitoring, ML dispatch, and compliance documentation architecture to the specific regulatory requirements of each new sector.
             </p>
           </div>
           <div className="media-frame aspect-[16/10] overflow-hidden">

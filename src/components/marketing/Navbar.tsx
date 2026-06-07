@@ -9,6 +9,8 @@ import { PeakMark, Wordmark } from '@/components/brand/BrandMark'
 
 const NAV_LINKS = [
   { href: '/services',      label: 'Services' },
+  { href: '/services/life-sciences', label: 'Life Sciences', badge: '2026' },
+  { href: '/about',         label: 'About' },
   { href: '/technology',    label: 'Technology' },
   { href: '/case-studies',  label: 'Case Studies' },
   { href: '/insights',      label: 'Insights' },
@@ -57,7 +59,14 @@ export function Navbar() {
                   : 'text-[var(--grey-1)] hover:text-[var(--paper)] hover:bg-[var(--panel)]'
               )}
             >
-              {l.label}
+              <span className="inline-flex items-center gap-1.5">
+                {l.label}
+                {'badge' in l && (
+                  <span className="brand-mono border border-[var(--line)] px-1.5 py-0.5 text-[9px] text-[var(--grey-2)]">
+                    {l.badge}
+                  </span>
+                )}
+              </span>
             </Link>
           ))}
         </div>
@@ -106,7 +115,14 @@ export function Navbar() {
                 onClick={() => setMobileOpen(false)}
                 className="py-2.5 text-sm font-bold uppercase text-[var(--color-text-secondary)] hover:text-white transition-colors cursor-pointer"
               >
-                {l.label}
+                <span className="inline-flex items-center gap-2">
+                  {l.label}
+                  {'badge' in l && (
+                    <span className="brand-mono border border-[var(--line)] px-1.5 py-0.5 text-[9px] text-[var(--grey-2)]">
+                      {l.badge}
+                    </span>
+                  )}
+                </span>
               </Link>
             ))}
             <div className="h-px bg-[var(--color-border)] my-2" />

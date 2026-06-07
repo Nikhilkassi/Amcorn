@@ -280,6 +280,23 @@ export const FAQ_ITEMS = [
     q: 'What insurance do you carry?',
     a: '£10 million public liability, professional indemnity, and employer\'s liability as standard. Higher limits and named additional insureds are available on request. Full insurance schedule is provided during onboarding.',
   },
+  {
+    group: 'Life Sciences & Pharmaceutical',
+    q: 'Do you clean pharmaceutical cleanrooms and GMP environments?',
+    a: 'AMCORN\'s critical environment cleaning and IoT monitoring platform is expanding into GMP-regulated pharmaceutical cleanrooms and biotech facilities in H2 2026. We are currently conducting Cleanroom Readiness Audits for facilities operating under ISO 14644 and EU GMP Annex 1. If you are assessing cleaning suppliers for a pharmaceutical or life sciences environment, contact us now to be included in our launch programme.',
+  },
+  {
+    q: 'What is a Cleanroom Readiness Audit?',
+    a: 'A Cleanroom Readiness Audit is a 4-hour site assessment where AMCORN benchmarks your current cleaning operation against ISO 14644 and GMP Annex 1 requirements. We produce a written gap analysis identifying what your current programme does, what it is missing, and what a MHRA inspector would expect to see. The audit costs £950 and the fee is credited in full against your first cleaning programme contract if you proceed.',
+  },
+  {
+    q: 'What is a Written Cleaning Protocol and why does it matter?',
+    a: 'A Written Cleaning Protocol (WCP) is a GMP document that specifies exactly how each area of your cleanroom is cleaned — which chemicals, which equipment, which technique, in which order, by operatives with which qualification. It is a regulatory requirement for GMP-classified environments. Critically, it becomes part of your site master file and is reviewed during MHRA inspections. AMCORN produces site-specific WCPs reviewed and approved by your QA team before any clean is performed.',
+  },
+  {
+    q: 'What standards will AMCORN\'s life sciences cleaning meet?',
+    a: 'AMCORN\'s life sciences programme is being built to align with EU GMP Annex 1 (Manufacture of Sterile Medicinal Products), ISO 14644-1 cleanroom classification, and MHRA inspection requirements. Operatives will be trained and assessed against a defined GMP competency framework. Every clean will produce a batch record structured for inclusion in your quality management system.',
+  },
 ]
 
 export const COMPLIANCE_CREDENTIALS = [
