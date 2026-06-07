@@ -1,12 +1,13 @@
 import { HeroSection } from '@/components/marketing/HeroSection'
-import { ScrollingTicker } from '@/components/marketing/ScrollingTicker'
+import { ClientLogoBar } from '@/components/marketing/ClientLogoBar'
 import { ServiceCard } from '@/components/marketing/ServiceCard'
 import { ProcessTimeline } from '@/components/marketing/ProcessTimeline'
 import { MethodMediaSection } from '@/components/marketing/MethodMediaSection'
 import { TrustProofSection } from '@/components/marketing/TrustProofSection'
+import { WhyAmcornSection } from '@/components/marketing/WhyAmcornSection'
 import { SERVICES, CASE_STUDIES, TARGET_MARKETS } from '@/lib/mockData'
 import Link from 'next/link'
-import { ArrowUpRight, CheckCircle2, Download, FileCheck2, LockKeyhole, PoundSterling, ShieldCheck } from 'lucide-react'
+import { ArrowUpRight, Download, FileCheck2, LockKeyhole, PoundSterling, ShieldCheck } from 'lucide-react'
 
 export const metadata = {
   title: 'AMCORN - Critical Environment Cleaning | Data Centres · AI Facilities · UK',
@@ -20,11 +21,24 @@ export default function HomePage() {
     { icon: PoundSterling, label: 'Budget signal', value: 'Indicative scope and cost route after assessment' },
     { icon: ShieldCheck, label: 'Secure access', value: 'Clearance requirements confirmed before mobilisation' },
   ]
+  const homepageResults = [
+    { ...CASE_STUDIES[0], sector: 'Data Centre' },
+    CASE_STUDIES[1],
+    CASE_STUDIES[2],
+    {
+      client: 'Pharmaceutical Cleanroom Programme',
+      sector: 'Life Sciences — Coming 2026',
+      metric: '0',
+      metricLabel: 'GMP deviations',
+      description: "AMCORN is expanding its certified cleaning and IoT monitoring platform into GMP-regulated pharmaceutical and biotech environments in H2 2026. Assessment programme now open.",
+      href: '/contact/',
+    },
+  ]
 
   return (
     <>
       <HeroSection />
-      <ScrollingTicker />
+      <ClientLogoBar />
 
       <section className="border-b border-[var(--line)] bg-[var(--ink)]">
         <div className="mx-auto grid max-w-7xl grid-cols-1 divide-y divide-[var(--line)] px-6 md:grid-cols-4 md:divide-x md:divide-y-0">
@@ -72,35 +86,7 @@ export default function HomePage() {
 
       <MethodMediaSection />
 
-      {/* Why AMCORN differentiators */}
-      <section className="py-24 bg-[var(--color-bg-surface)] border-y border-[var(--color-border)]">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-3">Why AMCORN</p>
-            <h2 className="text-4xl font-black tracking-tight">
-              We built the thing nobody else<br />bothered to build.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: 'Built for one environment only', body: 'AMCORN does not clean offices. Every piece of training, equipment, protocol, and technology exists for one purpose: keeping critical technology infrastructure clean and running.' },
-              { title: 'IoT monitoring between every visit', body: "Most cleaning companies leave when the job is done. AMCORN's IoT sensors stay. You have real-time visibility of your environment between every scheduled clean - and automatic dispatch if conditions deteriorate." },
-              { title: 'ML that predicts problems before they happen', body: 'Our machine learning engine analyses sensor telemetry, occupancy patterns, and service history to recommend the right intervention at the right time. You stop cleaning on a calendar and start cleaning on data.' },
-              { title: 'Documentation you can use in any audit', body: 'Every clean produces a compliance report designed to satisfy Uptime Institute, ISO 27001, PCI DSS, and insurer requirements. A structured, tamper-evident dossier - not a signed timesheet.' },
-              { title: 'Security clearance managed end to end', body: 'We maintain a DV and SC-cleared operative pool because our clients require it. Clearance applications, renewals, and NSV compliance are handled by AMCORN - not handed back to you.' },
-              { title: 'Multi-site, one portal', body: 'For operators with multiple facilities: one portal, one account manager, one consolidated compliance programme. No chasing multiple contacts, no disconnected reporting.' },
-            ].map((d) => (
-              <div key={d.title} className="glass rounded-2xl p-6 hover:border-[var(--color-text-muted)] transition-colors duration-200">
-                <div className="flex items-start gap-3 mb-3">
-                  <CheckCircle2 size={16} className="text-[var(--color-green)] flex-shrink-0 mt-0.5" />
-                  <h3 className="font-bold text-white text-sm">{d.title}</h3>
-                </div>
-                <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed pl-7">{d.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <WhyAmcornSection />
 
       <TrustProofSection />
 
@@ -111,7 +97,7 @@ export default function HomePage() {
           <h2 className="text-4xl font-black tracking-tight">Proven across every critical sector</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {CASE_STUDIES.map((cs) => (
+          {homepageResults.map((cs) => (
             <div key={cs.client} className="glass rounded-2xl p-6">
               <div className="mb-4">
                 <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">{cs.sector}</span>
@@ -125,9 +111,17 @@ export default function HomePage() {
                 <p className="text-xs font-semibold text-[var(--color-text-muted)]">{cs.client}</p>
                 <span className="brand-mono border border-[var(--line)] px-2 py-1 text-[10px] text-[var(--grey-2)]">Evidence under NDA</span>
               </div>
+              {'href' in cs && (
+                <Link href={cs.href} className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-white transition-colors cursor-pointer">
+                  Register interest <ArrowUpRight size={14} />
+                </Link>
+              )}
             </div>
           ))}
         </div>
+        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-[var(--color-text-muted)]">
+          Results shown are from AMCORN&apos;s active client programmes. Sector labels are illustrative. Named references and full data sets available under NDA during supplier assessment.
+        </p>
         <div className="text-center mt-10">
           <Link href="/case-studies" className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-white transition-colors cursor-pointer">
             Read full case studies <ArrowUpRight size={14} />
@@ -148,7 +142,14 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {TARGET_MARKETS.map((m) => (
               <div key={m.sector} className="glass rounded-xl p-5 hover:border-[var(--color-text-muted)] transition-colors duration-200">
-                <p className="font-semibold text-white text-sm mb-2">{m.sector}</p>
+                <div className="mb-2 flex flex-wrap items-center gap-2">
+                  <p className="font-semibold text-white text-sm">{m.sector}</p>
+                  {'badge' in m && (
+                    <span className="brand-mono border border-[var(--line)] bg-[var(--ink)] px-2 py-1 text-[10px] text-[var(--grey-2)]">
+                      {m.badge}
+                    </span>
+                  )}
+                </div>
                 <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">{m.description}</p>
               </div>
             ))}

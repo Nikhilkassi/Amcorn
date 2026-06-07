@@ -25,11 +25,14 @@ const PROCUREMENT_CUES = [
   { icon: FileCheck2, label: 'Evidence pack', value: 'Particle counts, photos, ESD and product records' },
 ]
 
+const HERO_TRUST_TICKER =
+  'ISO 14644 Certified  ·  IoT Sensor Network  ·  ML Dispatch Engine  ·  DV-Cleared Operatives  ·  24hr Compliance Reports  ·  Uptime Institute Ready  ·  GMP-Aligned  ·  CQC-Aware  ·  Cyber Essentials Certified  ·  £10M Public Liability  ·  SC-Cleared Operatives  ·  ESD-Safe Equipment  ·  Sub-1μm Particle Reporting  ·  Zero Disruption Methodology'
+
 export function HeroSection() {
   return (
     <section className="relative min-h-[86svh] overflow-hidden bg-[var(--ink)] pt-[var(--nav-h)]">
-      <video className="hero-bg-video" autoPlay muted loop playsInline poster="/media/data-hall-hero.jpg" aria-hidden="true">
-        <source src="/videos/Data Walk.mp4" type="video/mp4" />
+      <video className="hero-bg-video" autoPlay muted loop preload="metadata" playsInline poster="/images/hero-fallback.jpg" aria-hidden="true">
+        <source src="/videos/hero-bg.mp4" type="video/mp4" />
       </video>
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,5,5,0.94)_0%,rgba(5,5,5,0.76)_42%,rgba(5,5,5,0.38)_100%)]" aria-hidden />
       <div className="absolute inset-0 bg-[linear-gradient(0deg,var(--ink)_0%,rgba(5,5,5,0)_34%,rgba(5,5,5,0)_100%)]" aria-hidden />
@@ -58,11 +61,12 @@ export function HeroSection() {
               variants={item}
               className="max-w-[10ch] text-4xl font-black leading-none text-[var(--paper)] sm:max-w-4xl sm:text-5xl lg:text-7xl"
             >
-              Cleaning that protects critical infrastructure.
+              The UK&apos;s critical environment compliance platform.
             </motion.h1>
 
             <motion.p variants={item} className="mt-5 max-w-[38rem] text-base leading-relaxed text-[var(--grey-1)] sm:text-lg">
-              Specialist data-hall cleaning, sensor-led monitoring, and audit-ready evidence packs for teams responsible for uptime, compliance, and secure access.
+              IoT-monitored. ML-dispatched. Audit-documented.<br />
+              Built for environments where contamination is not an option.
             </motion.p>
 
             <motion.div variants={item} className="mt-8 flex flex-wrap gap-3">
@@ -73,6 +77,12 @@ export function HeroSection() {
                 Procurement checklist <Download size={16} />
               </a>
             </motion.div>
+            <div className="hero-trust-ticker mt-6" aria-hidden="true">
+              <div className="hero-trust-ticker-track">
+                <span>{HERO_TRUST_TICKER}</span>
+                <span>{HERO_TRUST_TICKER}</span>
+              </div>
+            </div>
           </div>
 
           <motion.aside variants={item} className="ticked border border-[var(--line)] bg-[rgba(5,5,5,0.7)] p-5">

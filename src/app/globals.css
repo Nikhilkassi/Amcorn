@@ -223,6 +223,63 @@ p {
   filter: saturate(0.82) contrast(1.08);
 }
 
+.hero-trust-ticker {
+  max-width: min(100%, 760px);
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding-block: 10px;
+}
+
+.hero-trust-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: hero-trust-scroll 32s linear infinite;
+}
+
+.hero-trust-ticker-track span {
+  flex-shrink: 0;
+  padding-right: 3rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--grey-1);
+  white-space: nowrap;
+}
+
+@keyframes hero-trust-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.why-card-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.why-card-reveal.is-visible {
+  animation: why-card-fade-up 400ms ease-out forwards;
+}
+
+.why-card-delay-0.is-visible { animation-delay: 0ms; }
+.why-card-delay-1.is-visible { animation-delay: 80ms; }
+.why-card-delay-2.is-visible { animation-delay: 160ms; }
+.why-card-delay-3.is-visible { animation-delay: 240ms; }
+.why-card-delay-4.is-visible { animation-delay: 320ms; }
+.why-card-delay-5.is-visible { animation-delay: 400ms; }
+
+@keyframes why-card-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .media-frame {
   position: relative;
   border: 1px solid var(--line);

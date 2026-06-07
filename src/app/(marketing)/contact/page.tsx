@@ -57,6 +57,9 @@ export default function ContactPage() {
 
           {/* Right: form */}
           <div className="lg:col-span-3 glass rounded-2xl p-8">
+            <p className="mb-6 text-sm leading-relaxed text-[var(--color-text-secondary)]">
+              Assessing a pharmaceutical or life sciences facility? Please select &apos;Life sciences or pharmaceutical facility&apos; above — our assessment process for GMP environments differs from standard critical environment scoping.
+            </p>
             <QuoteRequestForm />
           </div>
         </div>
