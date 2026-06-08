@@ -7,6 +7,8 @@ import { motion } from 'framer-motion'
 import { CheckCircle2, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
+const WEB3FORMS_ACCESS_KEY = 'dbc7cbc8-d109-4fb6-870b-70359ed02d8c'
+
 const FORM_SCHEMA = z.object({
   company: z.string().min(2, 'Company name required'),
   name: z.string().min(2, 'Your name required'),
@@ -93,16 +95,60 @@ function Textarea({ error, ...props }: React.TextareaHTMLAttributes<HTMLTextArea
 export function QuoteRequestForm() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'error' | null>(null)
 
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(FORM_SCHEMA),
   })
 
-  const onSubmit = async () => {
+  const onSubmit = async (data: FormData) => {
     setLoading(true)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    setLoading(false)
-    setSubmitted(true)
+    setSubmitStatus(null)
+
+    const formData = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      subject: 'New Quote Request — AMCORN',
+      from_name: data.name,
+      email: data.email,
+      phone: data.phone || 'Not provided',
+      company: data.company || 'Not provided',
+      facility_type: data.facilityType || 'Not provided',
+      message: data.message || 'Not provided',
+      job_title: data.jobTitle || 'Not provided',
+      facility_count: data.facilityCount || 'Not provided',
+      current_cleaning_programme: data.hasCurrentProgramme || 'Not provided',
+      referral_source: data.referralSource || 'Not provided',
+      botcheck: '',
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        setSubmitStatus('error')
+      }
+    } catch {
+      setSubmitStatus('error')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const resetForm = () => {
+    reset()
+    setSubmitted(false)
+    setSubmitStatus(null)
   }
 
   if (submitted) {
@@ -111,14 +157,30 @@ export function QuoteRequestForm() {
         <CheckCircle2 size={48} className="text-[var(--color-green)] mb-4" />
         <h3 className="text-2xl font-bold text-white mb-2">Assessment Request Received</h3>
         <p className="text-[var(--color-text-secondary)] text-sm max-w-sm">
-          Our team will review your requirements and respond within one business day with a proposed scope and indicative pricing. No sales calls without your permission.
+          Thank you. We will respond within one business day. A member of the AMCORN team will be in touch shortly.
         </p>
+        <button
+          type="button"
+          onClick={resetForm}
+          className="mt-6 flex items-center justify-center gap-2 px-5 py-3 rounded-xl gradient-accent text-white text-sm font-semibold hover:opacity-90 transition-opacity cursor-pointer"
+        >
+          Send another enquiry
+        </button>
       </motion.div>
     )
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        style={{ display: 'none' }}
+        tabIndex={-1}
+        autoComplete="off"
+      />
+
       <div>
         <Label>Company Name</Label>
         <Input {...register('company')} placeholder="Acme Infrastructure Ltd" error={errors.company?.message} />
@@ -193,6 +255,12 @@ export function QuoteRequestForm() {
       >
         {loading ? <><Loader2 size={15} className="animate-spin" /> Submitting…</> : 'Request Site Assessment →'}
       </button>
+
+      {submitStatus === 'error' && (
+        <p className="text-sm text-[var(--color-red)]">
+          Something went wrong. Please email us directly at info@amcorn.com
+        </p>
+      )}
 
       <p className="text-xs text-[var(--color-text-muted)]">
         Response within 1 business day · No sales calls without permission · All enquiries treated confidentially · DV-cleared enquiries handled separately
