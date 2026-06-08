@@ -19,9 +19,10 @@ const ICON_MAP: Record<string, React.ElementType> = {
 interface ServiceCardProps {
   service: Service
   featured?: boolean
+  attention?: boolean
 }
 
-export function ServiceCard({ service, featured = false }: ServiceCardProps) {
+export function ServiceCard({ service, featured = false, attention = false }: ServiceCardProps) {
   const Icon = ICON_MAP[service.icon] ?? Database
 
   return (
@@ -31,7 +32,8 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
       className={cn(
         'group ticked relative flex flex-col glass p-6 cursor-pointer overflow-hidden',
         'hover:border-[var(--line-strong)] transition-colors duration-200',
-        featured && 'md:col-span-2'
+        featured && 'md:col-span-2',
+        attention && 'pulse-border'
       )}
     >
       <div
@@ -55,7 +57,7 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
         {service.description}
       </p>
 
-      {featured && (
+      {featured && service.features.length > 0 && (
         <ul className="grid grid-cols-2 gap-1.5 mb-4">
           {service.features.map((f) => (
             <li key={f} className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)]">

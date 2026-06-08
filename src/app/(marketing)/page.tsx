@@ -9,11 +9,36 @@ import { HomepageResultsSection } from '@/components/marketing/HomepageResultsSe
 import { SERVICES, CASE_STUDIES, TARGET_MARKETS } from '@/lib/mockData'
 import Link from 'next/link'
 import { ArrowUpRight, Download, FileCheck2, LockKeyhole, PoundSterling, ShieldCheck } from 'lucide-react'
+import type { Service } from '@/types'
 
 export const metadata = {
   title: 'AMCORN - Critical Environment Cleaning | Data Centres · AI Facilities · UK',
-  description: 'ISO-14644 certified specialist cleaning for UK data centres, server rooms and AI compute. IoT-monitored. DV-cleared. Digital compliance reports within 24 hours.',
+  description: "AMCORN is the UK's critical environment compliance platform — IoT-monitored, ML-dispatched, and audit-documented cleaning for data centres, life sciences facilities, and healthcare infrastructure. DV-cleared. ISO 14644 certified.",
 }
+
+const homepageServiceCards: Service[] = [
+  ...SERVICES,
+  {
+    id: 'life-sciences-pharmaceutical-cleaning',
+    slug: 'life-sciences',
+    name: 'Life Sciences & Pharmaceutical Cleaning',
+    description: 'ISO 14644-classified cleaning for pharmaceutical manufacturing, biotech research, and medical device environments — with GMP batch record documentation, Written Cleaning Protocol integration, and IoT environmental monitoring between every visit.',
+    icon: 'database',
+    techLabel: 'GMP-Aligned',
+    scopeLabel: 'Pharmaceutical · Biotech · CDMO',
+    features: [],
+  },
+  {
+    id: 'clinical-healthcare-facility-cleaning',
+    slug: 'healthcare',
+    name: 'Clinical & Healthcare Facility Cleaning',
+    description: 'CQC-structured cleaning for private surgical centres, diagnostic imaging facilities, and specialist clinics — documented to NHS National Standards of Healthcare Cleanliness 2021, with IPC-aligned protocols and outbreak response capability.',
+    icon: 'shield',
+    techLabel: 'CQC-Aware',
+    scopeLabel: 'Private Hospitals · Surgical Centres · Diagnostics',
+    features: [],
+  },
+]
 
 export default function HomePage() {
   const proofStrip = [
@@ -79,8 +104,8 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {SERVICES.map((s, i) => (
-            <ServiceCard key={s.id} service={s} featured={i === 0} />
+          {homepageServiceCards.map((s, i) => (
+            <ServiceCard key={s.id} service={s} featured={i === 0} attention={i >= SERVICES.length} />
           ))}
         </div>
       </section>

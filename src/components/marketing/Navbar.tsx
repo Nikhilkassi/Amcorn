@@ -10,8 +10,10 @@ import { PeakMark, Wordmark } from '@/components/brand/BrandMark'
 const NAV_LINKS = [
   { href: '/services',      label: 'Services' },
   { href: '/services/life-sciences', label: 'Life Sciences', badge: '2026' },
+  { href: '/services/healthcare', label: 'Healthcare', badge: '2026' },
+  { href: '/contact',       label: 'GMP Audit', badge: 'From £950' },
   { href: '/about',         label: 'About' },
-  { href: '/technology',    label: 'Technology' },
+  { href: '/technology',    label: 'Technology Platform' },
   { href: '/case-studies',  label: 'Case Studies' },
   { href: '/insights',      label: 'Insights' },
   { href: '/faq',           label: 'FAQ' },

@@ -11,6 +11,7 @@ const LINKS = {
     { label: 'Maintenance Programmes',        href: '/services/scheduled-maintenance' },
     { label: 'Life Sciences Cleaning',         href: '/services/life-sciences' },
     { label: 'Healthcare Facilities',          href: '/services/healthcare' },
+    { label: 'GMP Cleanroom Audit',            href: '/contact' },
   ],
   Company: [
     { label: 'About AMCORN',                  href: '/about' },
@@ -41,6 +42,8 @@ const COMPLIANCE_BADGES = [
   'DV Cleared',
   'Cyber Essentials',
   'IEC 61340',
+  'GMP-Aligned',
+  'CQC-Aware',
 ]
 
 const LEGAL_LINKS = [
@@ -65,7 +68,7 @@ export function Footer() {
               <span className="font-bold text-lg">AMCORN</span>
             </div>
             <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed max-w-xs mb-6">
-              Specialist critical environment cleaning for UK data centres, government infrastructure, and technology facilities - ISO-14644 certified, IoT-monitored, DV-cleared.
+              The UK&apos;s critical environment compliance platform — IoT-monitored, ML-dispatched, audit-documented. Serving data centres, life sciences, and healthcare infrastructure.
             </p>
             {/* Compliance badges */}
             <div className="flex flex-wrap gap-2">
