@@ -47,11 +47,28 @@ const includedItems = [
   'IPC advisory support via retained clinical lead',
 ]
 
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Clinical & Healthcare Facility Cleaning',
+  provider: {
+    '@type': 'Organization',
+    name: 'AMCORN Ltd',
+  },
+  description: 'CQC-structured cleaning for private surgical centres and diagnostic imaging facilities with IPC-aligned protocols.',
+  areaServed: 'GB',
+  serviceType: 'Healthcare Facility Cleaning',
+}
+
 export default function HealthcareServicePage() {
   const related = SERVICES.slice(0, 3)
 
   return (
     <div className="pt-[var(--nav-h)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="mb-20 grid grid-cols-1 gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div>

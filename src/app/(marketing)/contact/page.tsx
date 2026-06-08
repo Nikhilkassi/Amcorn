@@ -2,8 +2,8 @@ import { QuoteRequestForm } from '@/components/marketing/QuoteRequestForm'
 import { FileText, Mail, Shield } from 'lucide-react'
 
 export const metadata = {
-  title: 'Request a Site Assessment | AMCORN',
-  description: "Tell us about your facility. AMCORN responds within one business day with a scope and indicative pricing. No obligation.",
+  title: 'Request a Site Assessment | AMCORN Critical Environment Cleaning',
+  description: 'Request a site assessment for your data centre, pharmaceutical cleanroom, or healthcare facility. AMCORN responds within one business day. No obligation.',
 }
 
 export default function ContactPage() {

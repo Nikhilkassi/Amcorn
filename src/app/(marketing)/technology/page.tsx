@@ -4,8 +4,8 @@ import { STATUS_COMPONENTS, COMPLIANCE_CREDENTIALS } from '@/lib/mockData'
 import { Wifi, Cpu, LayoutDashboard, FileCheck } from 'lucide-react'
 
 export const metadata = {
-  title: 'AMCORN Technology Platform | IoT · ML Dispatch · Compliance Portal',
-  description: 'Real-time IoT monitoring, ML-predicted service intervals, and audit-ready compliance reporting — built for data centres, life sciences facilities, and regulated healthcare environments.',
+  title: 'AMCORN Technology Platform | IoT · ML Dispatch · Compliance Portal · Multi-Sector',
+  description: 'Real-time IoT environmental monitoring, ML-predicted service intervals, and structured compliance documentation — built for data centres, pharmaceutical cleanrooms, and clinical facilities.',
 }
 
 const TECH_FEATURES = [

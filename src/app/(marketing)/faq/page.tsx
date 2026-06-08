@@ -2,8 +2,8 @@ import { FAQClient } from './FAQClient'
 import { FAQ_ITEMS } from '@/lib/mockData'
 
 export const metadata = {
-  title: 'FAQ | AMCORN Critical Environment Cleaning',
-  description: 'Answers to common questions about AMCORN data centre cleaning, IoT monitoring, secure access, compliance reporting, and supplier onboarding.',
+  title: 'FAQ | Data Centre, Life Sciences & Healthcare Cleaning | AMCORN',
+  description: "Answers to common questions about AMCORN's data centre cleaning, pharmaceutical cleanroom audits, CQC-compliant healthcare cleaning, IoT monitoring, and compliance reporting.",
 }
 
 const FAQ_SCHEMA = {

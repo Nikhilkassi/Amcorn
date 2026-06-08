@@ -66,11 +66,28 @@ const credentials = [
   'Cyber Essentials',
 ]
 
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'GMP Cleanroom & Life Sciences Cleaning',
+  provider: {
+    '@type': 'Organization',
+    name: 'AMCORN Ltd',
+  },
+  description: 'ISO 14644-classified cleaning for pharmaceutical manufacturing, biotech, and medical device environments with GMP batch record documentation.',
+  areaServed: 'GB',
+  serviceType: 'Pharmaceutical Cleanroom Cleaning',
+}
+
 export default function LifeSciencesServicePage() {
   const related = SERVICES.slice(0, 3)
 
   return (
     <div className="pt-[var(--nav-h)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="mb-20 grid grid-cols-1 gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
           <div>

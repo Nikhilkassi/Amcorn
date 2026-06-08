@@ -12,8 +12,8 @@ import { ArrowUpRight, Download, FileCheck2, LockKeyhole, PoundSterling, ShieldC
 import type { Service } from '@/types'
 
 export const metadata = {
-  title: 'AMCORN - Critical Environment Cleaning | Data Centres · AI Facilities · UK',
-  description: "AMCORN is the UK's critical environment compliance platform — IoT-monitored, ML-dispatched, and audit-documented cleaning for data centres, life sciences facilities, and healthcare infrastructure. DV-cleared. ISO 14644 certified.",
+  title: 'AMCORN | Critical Environment Compliance Platform — Data Centres · Life Sciences · Healthcare',
+  description: 'IoT-monitored, ML-dispatched, audit-documented cleaning for UK data centres, pharmaceutical cleanrooms, and healthcare infrastructure. ISO 14644. DV-Cleared. 24hr compliance reports.',
 }
 
 const homepageServiceCards: Service[] = [
@@ -40,6 +40,35 @@ const homepageServiceCards: Service[] = [
   },
 ]
 
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'AMCORN Ltd',
+  description: 'UK critical environment compliance platform — IoT-monitored, ML-dispatched cleaning for data centres, life sciences, and healthcare infrastructure.',
+  url: 'https://amcorn.com',
+  logo: 'https://amcorn.com/brand/amcorn-red.png',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '1 Canada Square, Canary Wharf',
+    addressLocality: 'London',
+    postalCode: 'E14 5AB',
+    addressCountry: 'GB',
+  },
+  email: 'info@amcorn.com',
+  areaServed: 'GB',
+  serviceType: [
+    'Data Centre Cleaning',
+    'Pharmaceutical Cleanroom Cleaning',
+    'Healthcare Facility Cleaning',
+    'Critical Environment Cleaning',
+  ],
+  hasCredential: [
+    'ISO 14644-1',
+    'Cyber Essentials',
+    'DV Security Clearance',
+  ],
+}
+
 export default function HomePage() {
   const proofStrip = [
     { icon: FileCheck2, label: 'Supplier pack', value: 'RAMS, COSHH, insurance, method statement' },
@@ -63,6 +92,10 @@ export default function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       <HeroSection />
       <ClientLogoBar />
 

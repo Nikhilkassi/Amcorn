@@ -3,8 +3,8 @@ import { ArrowRight } from 'lucide-react'
 import { COMPLIANCE_CREDENTIALS } from '@/lib/mockData'
 
 export const metadata = {
-  title: 'About AMCORN | UK Critical Environment Cleaning Platform',
-  description: "AMCORN is the UK's specialist critical environment cleaning and compliance platform — serving data centres, life sciences facilities, and healthcare environments with IoT monitoring, ML dispatch, and audit-ready documentation.",
+  title: 'About AMCORN | UK Critical Environment Compliance Platform',
+  description: "AMCORN is the UK's specialist critical environment cleaning platform — IoT monitoring, ML dispatch, and audit-ready documentation for data centres, life sciences, and healthcare.",
 }
 
 const sectorCards = [

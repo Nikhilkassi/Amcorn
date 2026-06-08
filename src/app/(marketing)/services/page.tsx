@@ -3,8 +3,8 @@ import { ServiceCard } from '@/components/marketing/ServiceCard'
 import { SERVICES } from '@/lib/mockData'
 
 export const metadata = {
-  title: 'Critical Environment Cleaning Services | AMCORN',
-  description: 'Raised floor, active equipment, CRAC unit, secure facility and post-construction cleaning for UK data centres and technology infrastructure.',
+  title: 'Critical Environment Cleaning Services | Data Centres, Life Sciences & Healthcare | AMCORN',
+  description: 'Six specialist cleaning disciplines for regulated environments — raised floor, active equipment, CRAC units, secure facilities, life sciences, and healthcare. IoT-monitored. Audit-documented.',
 }
 
 export default function ServicesPage() {

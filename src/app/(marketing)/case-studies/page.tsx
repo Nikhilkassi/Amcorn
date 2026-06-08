@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 export const metadata = {
-  title: 'Case Studies | AMCORN Critical Environment Cleaning',
-  description: 'Representative AMCORN project outcomes for colocation, government, and AI compute environments, with named references handled during procurement.',
+  title: 'Case Studies | Proven Results in Data Centres, Government & AI Facilities | AMCORN',
+  description: "Zero thermal events in 14 months. Zero security incidents. Zero GPU throttling in 9 months. Real results from AMCORN's IoT-monitored critical environment programmes.",
 }
 
 const TESTIMONIALS = [
