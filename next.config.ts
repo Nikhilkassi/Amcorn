@@ -13,6 +13,24 @@ const nextConfig: NextConfig = {
       }
     : {}),
   turbopack: { root: __dirname },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.amcorn.com" }],
+        destination: "https://amcorn.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "index, follow" }],
+      },
+    ];
+  },
 };
 
 export default nextConfig;

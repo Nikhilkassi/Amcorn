@@ -28,17 +28,20 @@ const SITE_URL = 'https://amcorn.com'
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: '/',
+  },
   title: 'AMCORN - Critical Environment Cleaning | Data Centres · AI Facilities · UK',
   description:
     'ISO-14644 certified specialist cleaning for UK data centres, server rooms and AI compute facilities. IoT-monitored. DV-cleared. Digital compliance reports within 24 hours.',
   manifest: '/site.webmanifest',
   icons: {
     icon: [
-      { url: '/brand/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/brand/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/brand/favicon-32x32.png?v=2', sizes: '32x32', type: 'image/png' },
+      { url: '/brand/favicon-16x16.png?v=2', sizes: '16x16', type: 'image/png' },
     ],
-    shortcut: '/brand/favicon-32x32.png',
-    apple: [{ url: '/brand/apple-touch-icon.png', sizes: '180x180' }],
+    shortcut: '/brand/favicon-32x32.png?v=2',
+    apple: [{ url: '/brand/apple-touch-icon.png?v=2', sizes: '180x180' }],
   },
   openGraph: {
     title: 'AMCORN - Critical Environment Cleaning',

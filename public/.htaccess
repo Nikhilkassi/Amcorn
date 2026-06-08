@@ -2,6 +2,8 @@ DirectoryIndex index.html
 
 ErrorDocument 404 /404.html
 
+AddType application/manifest+json .webmanifest
+
 <IfModule mod_headers.c>
   <FilesMatch "\.(html|txt)$">
     Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
@@ -13,7 +15,12 @@ ErrorDocument 404 /404.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  RewriteCond %{HTTPS} !=on [OR]
   RewriteCond %{HTTP_HOST} ^www\.amcorn\.com$ [NC,OR]
   RewriteCond %{HTTP_HOST} ^(www\.)?amcorn\.co\.uk$ [NC]
   RewriteRule ^(.*)$ https://amcorn.com/$1 [R=301,L,NE]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "index, follow"
 </IfModule>
