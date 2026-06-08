@@ -280,6 +280,25 @@ p {
   }
 }
 
+.result-metric-pulse {
+  animation: result-metric-pulse 600ms ease-out both;
+}
+
+@keyframes result-metric-pulse {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .media-frame {
   position: relative;
   border: 1px solid var(--line);

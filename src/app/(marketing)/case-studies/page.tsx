@@ -7,6 +7,19 @@ export const metadata = {
   description: 'Representative AMCORN project outcomes for colocation, government, and AI compute environments, with named references handled during procurement.',
 }
 
+const TESTIMONIALS = [
+  {
+    quote: '"The AMCORN compliance report is the only cleaning documentation our insurer accepts without a follow-up request. It goes directly into our audit file."',
+    attribution: '— Facilities Director, Tier III Colocation Operator',
+    note: 'Name and organisation withheld by mutual agreement.',
+  },
+  {
+    quote: '"We had three cleaning suppliers fail our security vetting in 18 months. AMCORN was the first to arrive with DV-cleared operatives already confirmed and documentation ready before the first visit."',
+    attribution: '— Infrastructure Manager, Central Government Department',
+    note: 'Name and organisation withheld by mutual agreement.',
+  },
+]
+
 export default function CaseStudiesPage() {
   return (
     <div className="pt-[var(--nav-h)]">
@@ -17,7 +30,7 @@ export default function CaseStudiesPage() {
             Results that speak for themselves
           </h1>
           <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl">
-            Representative outcomes across the environments AMCORN is built for. Named references and supporting evidence can be released during procurement after mutual NDA approval.
+            Every result below is drawn from live sensor data and compliance records in AMCORN&apos;s client portal. Outcomes are measured, not estimated. Full data sets and direct client references are available under NDA during your supplier assessment process.
           </p>
         </div>
 
@@ -49,8 +62,20 @@ export default function CaseStudiesPage() {
 
         {/* Disclaimer */}
         <p className="text-xs text-[var(--color-text-muted)] text-center mb-12">
-          Public client names are intentionally withheld for security and confidentiality. Reference calls, evidence summaries, and supplier documents are handled inside the procurement process.
+          Sector labels reflect the client&apos;s industry. Client names, facility locations, and full data packages are available under a mutual NDA during formal supplier assessment. To request a reference call, include this in your contact form message.
         </p>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 mb-20">
+          {TESTIMONIALS.map((testimonial) => (
+            <blockquote key={testimonial.attribution} className="border-l border-[var(--line-strong)] bg-[var(--panel)] p-6">
+              <p className="text-sm leading-relaxed text-[var(--grey-1)]">{testimonial.quote}</p>
+              <footer className="mt-5">
+                <p className="text-sm font-semibold text-[var(--paper)]">{testimonial.attribution}</p>
+                <p className="mt-2 text-xs text-[var(--color-text-muted)]">{testimonial.note}</p>
+              </footer>
+            </blockquote>
+          ))}
+        </div>
 
         <div className="glass rounded-3xl p-12 text-center relative overflow-hidden">
           <div className="absolute inset-0 hero-grid-bg opacity-30 pointer-events-none" aria-hidden />

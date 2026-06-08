@@ -5,6 +5,7 @@ import { ProcessTimeline } from '@/components/marketing/ProcessTimeline'
 import { MethodMediaSection } from '@/components/marketing/MethodMediaSection'
 import { TrustProofSection } from '@/components/marketing/TrustProofSection'
 import { WhyAmcornSection } from '@/components/marketing/WhyAmcornSection'
+import { HomepageResultsSection } from '@/components/marketing/HomepageResultsSection'
 import { SERVICES, CASE_STUDIES, TARGET_MARKETS } from '@/lib/mockData'
 import Link from 'next/link'
 import { ArrowUpRight, Download, FileCheck2, LockKeyhole, PoundSterling, ShieldCheck } from 'lucide-react'
@@ -90,44 +91,7 @@ export default function HomePage() {
 
       <TrustProofSection />
 
-      {/* Case studies */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <p className="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-3">Results</p>
-          <h2 className="text-4xl font-black tracking-tight">Proven across every critical sector</h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {homepageResults.map((cs) => (
-            <div key={cs.client} className="glass rounded-2xl p-6">
-              <div className="mb-4">
-                <span className="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)]">{cs.sector}</span>
-              </div>
-              <div className="mb-4">
-                <span className="text-5xl font-black text-gradient-accent">{cs.metric}</span>
-                <span className="ml-2 text-sm text-[var(--color-text-secondary)]">{cs.metricLabel}</span>
-              </div>
-              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed mb-4">{cs.description}</p>
-              <div className="flex flex-wrap items-center gap-2">
-                <p className="text-xs font-semibold text-[var(--color-text-muted)]">{cs.client}</p>
-                <span className="brand-mono border border-[var(--line)] px-2 py-1 text-[10px] text-[var(--grey-2)]">Evidence under NDA</span>
-              </div>
-              {'href' in cs && (
-                <Link href={cs.href} className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-white transition-colors cursor-pointer">
-                  Register interest <ArrowUpRight size={14} />
-                </Link>
-              )}
-            </div>
-          ))}
-        </div>
-        <p className="mx-auto mt-8 max-w-3xl text-center text-xs leading-relaxed text-[var(--color-text-muted)]">
-          Results shown are from AMCORN&apos;s active client programmes. Sector labels are illustrative. Named references and full data sets available under NDA during supplier assessment.
-        </p>
-        <div className="text-center mt-10">
-          <Link href="/case-studies" className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-text-secondary)] hover:text-white transition-colors cursor-pointer">
-            Read full case studies <ArrowUpRight size={14} />
-          </Link>
-        </div>
-      </section>
+      <HomepageResultsSection results={homepageResults} />
 
       {/* Who we serve */}
       <section className="py-24 bg-[var(--color-bg-surface)] border-y border-[var(--color-border)]">
