@@ -110,6 +110,8 @@ export function QuoteRequestForm() {
       subject: 'New Quote Request — AMCORN',
       from_name: data.name,
       email: data.email,
+      replyto: data.email,
+      to: 'info@amcorn.com',
       phone: data.phone || 'Not provided',
       company: data.company || 'Not provided',
       facility_type: data.facilityType || 'Not provided',
@@ -132,6 +134,7 @@ export function QuoteRequestForm() {
       })
 
       const result = await response.json()
+      console.log('Web3Forms response:', JSON.stringify(result))
 
       if (result.success) {
         setSubmitted(true)
